@@ -1,0 +1,32 @@
+name = "northbnb"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+
+# Static site served from ./public; unmatched routes fall back to the custom 404.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "404-page"
+# Run the Worker for every request so security + cache headers wrap all responses.
+run_worker_first = true
+
+# KV: rate-limiting buckets + durable form leads.
+# Create once with:  wrangler kv namespace create NB_KV
+# then paste the returned id below (and a preview_id for `wrangler dev --remote`).
+[[kv_namespaces]]
+binding = "NB_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+preview_id = "REPLACE_WITH_KV_PREVIEW_ID"
+
+[vars]
+ALLOWED_ORIGIN = "https://northbnb.com"
+LEAD_NOTIFY_EMAIL = "info@northbnb.com"
+# RESEND_API_KEY is NOT stored here. Set it as a secret:
+#   wrangler secret put RESEND_API_KEY
+
+# R2: optional listing photos from the host signup flow (host-leads/<leadId>/NN.jpg).
+# Create once with:  wrangler r2 bucket create northbnb-host-photos
+# Without this bucket the form still works; photos are just not stored.
+[[r2_buckets]]
+binding = "NB_PHOTOS"
+bucket_name = "northbnb-host-photos"

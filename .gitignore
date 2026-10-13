@@ -1,0 +1,5 @@
+.raw-img/
+node_modules/
+.wrangler/
+.dev.vars
+*.log

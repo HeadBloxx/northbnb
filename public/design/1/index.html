@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Design 1 | NorthB&B homepage directions</title>
+<meta name="description" content="Design exploration for the NorthB&B homepage.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#033f63">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NorthB&B">
+<meta property="og:title" content="Design 1 | NorthB&B homepage directions">
+<meta property="og:description" content="Design exploration for the NorthB&B homepage.">
+<meta property="og:url" content="https://northbnb.com/design/1/">
+<meta property="og:image" content="https://northbnb.com/assets/img/hero-montenegro-1600.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/montserrat-latin.woff2" crossorigin>
+<link rel="preload" as="image" href="/assets/img/hero-montenegro-960.webp" imagesrcset="/assets/img/hero-montenegro-480.webp 480w, /assets/img/hero-montenegro-960.webp 960w, /assets/img/hero-montenegro-1600.webp 1600w, /assets/img/hero-montenegro-2000.webp 2000w" imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="/assets/css/styles.css?v=e86c9c4406">
+<link rel="stylesheet" href="/assets/css/designs.css?v=8d170285f0">
+
+</head>
+<body class="design d1 has-sticky-cta">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="/"><svg viewBox="0 0 196 34" role="img" aria-label="NorthB&amp;B home" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 29V5h3.2l10.6 15.9V5H21v24h-3.2L7.2 13.1V29H4Z" fill="#254173"/>
+<path d="M0 3.5 9 0v8.5L0 12V3.5Z" fill="#30c9fa"/>
+<text x="30" y="24.5" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#254173">north</text>
+<text x="112" y="24.5" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#30c9fa">B&amp;B</text>
+</svg></a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span></button>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <div class="nav__links">
+        <a class="nav__link" href="/search/">Find a stay</a>
+        <a class="nav__link" href="/#destinations">Destinations</a>
+        <a class="nav__link" href="/host/start/">Become a host</a>
+        <a class="nav__link" href="/about/">About</a>
+        <a class="nav__link" href="/contact/">Contact</a>
+      </div>
+      <div class="nav__actions">
+        <a class="nav__login" href="https://northbnb.com/#divSignIn" rel="nofollow">Log in</a>
+        <a class="btn btn--primary" href="/host/start/">Become a host</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="hero" aria-label="Find a stay in Montenegro">
+  <div class="hero__media">
+    <picture>
+      <source type="image/webp" srcset="/assets/img/hero-montenegro-480.webp 480w, /assets/img/hero-montenegro-960.webp 960w, /assets/img/hero-montenegro-1600.webp 1600w, /assets/img/hero-montenegro-2000.webp 2000w" sizes="100vw">
+      <img src="/assets/img/hero-montenegro-1600.jpg" width="1600" height="1067" alt="Aerial view of a Montenegro coastal town beside the Adriatic" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+  <div class="wrap hero__inner">
+    <h1>Experience Montenegro, one handpicked stay at a time</h1>
+    <p class="hero__sub">Private apartments, coastal villas and family-run hotels across the country, booked directly with the people who look after them.</p>
+
+    <form class="searchbar" action="/search/" method="get" role="search" aria-label="Search stays">
+      <div class="field">
+        <label for="s-dest">Destination</label>
+        <div class="field__control"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <input id="s-dest" name="destination" list="dest-list" placeholder="Town or area" autocomplete="off">
+        </div>
+        <datalist id="dest-list"><option value="Podgorica"><option value="Herceg Novi"><option value="Budva"><option value="Bar"><option value="Kotor"><option value="Žabljak"><option value="Tivat"><option value="Ulcinj"><option value="Bijelo Polje"><option value="Plav"></datalist>
+      </div>
+      <div class="field">
+        <label for="s-in">Check in</label>
+        <div class="field__control"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg><input id="s-in" name="checkin" type="date"></div>
+      </div>
+      <div class="field">
+        <label for="s-out">Check out</label>
+        <div class="field__control"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="1.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg><input id="s-out" name="checkout" type="date"></div>
+      </div>
+      <button class="btn btn--primary" type="submit"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm9 16-4.35-4.35"/></svg> Search stays</button>
+    </form>
+
+    <p style="margin-top:var(--s-4)"><a class="link-arrow" style="color:#eaf4fb" href="/host/start/">Own a place in Montenegro? List it in minutes <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+
+<section class="section d1-usp" aria-labelledby="d1-usp-h">
+  <div class="wrap d1-usp__grid">
+    <div data-reveal>
+      <h2 id="d1-usp-h">Book direct with local hosts. <span>Skip the marketplace markup.</span></h2>
+      <p class="lede" style="margin-top:var(--s-4)">Not a global catalogue with a local logo. A Montenegro platform with real rates and a team that knows the country.</p>
+      <a class="btn btn--primary btn--lg" style="margin-top:var(--s-6)" href="/search/"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm9 16-4.35-4.35"/></svg> Find a stay</a>
+    </div>
+    <ul class="d1-usp__list">
+      
+      <li data-reveal data-reveal-delay="0">
+        <span class="d1-usp__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 6 2-1.5 6 4.5v6l-2 1.5"/><path d="m13 6-2-1.5L5 9v6l4 3 3-2.5 2.5 2 2-1.5"/><path d="m9 12 2 2"/></svg></span>
+        <div><h3>No marketplace markup</h3><p>We work with hosts directly, so the price you see is the host's real rate. Nothing stacked on top.</p></div>
+      </li>
+      <li data-reveal data-reveal-delay="1">
+        <span class="d1-usp__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg></span>
+        <div><h3>Handpicked, locally</h3><p>Every stay is chosen by a team that lives here. Coast, capital and mountains, nothing auto-imported.</p></div>
+      </li>
+      <li data-reveal data-reveal-delay="2">
+        <span class="d1-usp__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="M3 10h18M6.5 15h4"/></svg></span>
+        <div><h3>Pay your way</h3><p>Card or PayPal online, or settle in person on arrival. Your choice on every booking.</p></div>
+      </li>
+      <li data-reveal data-reveal-delay="3">
+        <span class="d1-usp__icon"><svg class="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13v-1a7 7 0 0 1 14 0v1"/><path d="M19 14v3a1.5 1.5 0 0 1-1.5 1.5H14"/><rect x="3.5" y="13" width="3" height="5" rx="1"/><rect x="17.5" y="13" width="3" height="5" rx="1"/></svg></span>
+        <div><h3>A local team on call</h3><p>Help choosing, booking and mid-trip, from people who know the country. Any hour.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="stats" aria-label="NorthB&amp;B at a glance">
+  <div class="wrap section--tight">
+    <div class="stats__grid">
+      <div data-reveal><div class="stat__num" data-count="195" data-suffix="+">195+</div><div class="stat__label">Private stays listed</div></div>
+      <div data-reveal data-reveal-delay="1"><div class="stat__num" data-count="6">6</div><div class="stat__label">Destinations across Montenegro</div></div>
+      <div data-reveal data-reveal-delay="2"><div class="stat__num">24/7</div><div class="stat__label">Support before &amp; during your trip</div></div>
+      <div data-reveal data-reveal-delay="3"><div class="stat__num" data-count="3">3</div><div class="stat__label">Ways to pay for your stay</div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--mist" id="destinations">
+  <div class="wrap">
+    <div class="measure" data-reveal>
+      <h2>Places to stay in Montenegro</h2>
+      <p class="lede" style="margin-top:var(--s-3)">From the Adriatic coast to the capital and the northern mountains. Start with one of these.</p>
+    </div>
+    <div class="dests" style="margin-top:var(--s-7)">
+      
+  <a class="dest" href="/search/?destination=Podgorica" data-reveal>
+    <img src="/assets/img/dest-podgorica-275.webp" alt="Podgorica, Montenegro" loading="lazy" decoding="async">
+    <span class="dest__label"><strong>Podgorica</strong><span>79 stays · the capital</span></span>
+  </a>
+      
+  <a class="dest" href="/search/?destination=Herceg%20Novi" data-reveal>
+    <img src="/assets/img/dest-herceg-novi-275.webp" alt="Herceg Novi, Montenegro" loading="lazy" decoding="async">
+    <span class="dest__label"><strong>Herceg Novi</strong><span>59 stays · the coast</span></span>
+  </a>
+      
+  <a class="dest" href="/search/?destination=Budva" data-reveal>
+    <img src="/assets/img/dest-budva-253.webp" alt="Budva, Montenegro" loading="lazy" decoding="async">
+    <span class="dest__label"><strong>Budva</strong><span>The Adriatic riviera</span></span>
+  </a>
+    </div>
+    <p style="margin-top:var(--s-6)" data-reveal><a class="link-arrow" href="/search/">See every destination <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="wrap">
+    <div class="measure center" data-reveal>
+      <h2>Booking a stay takes three steps</h2>
+    </div>
+    <div class="steps" style="margin-top:var(--s-8)">
+      
+  <div class="step" data-reveal>
+    <h3>Tell us where and when</h3>
+    <p>Search by town and dates. We show real availability from local hosts, no endless scrolling through places that aren't free.</p>
+  </div>
+      
+  <div class="step" data-reveal>
+    <h3>Book directly</h3>
+    <p>Reserve in a few steps and pay the way you prefer. Because it's direct, there's no marketplace markup added on top.</p>
+  </div>
+      
+  <div class="step" data-reveal>
+    <h3>Travel with backup</h3>
+    <p>Keep our team one message away, before you leave and all the way through your stay, any hour of the day.</p>
+  </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hostband section">
+  <div class="wrap hostband__grid">
+    <div data-reveal>
+      <h2>List your Montenegro property and start earning</h2>
+      <p style="margin-top:var(--s-4)">Join the hosts already reaching guests through NorthB&amp;B. Signup is short and guided, your listing is handled with a personal touch, and getting paid is simple, worldwide.</p>
+      <ul>
+        <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span>A short, guided signup. No long forms or paperwork to wade through.</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span>Direct bookings at a fair commission, not lost in a global marketplace.</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span>Get paid worldwide with Payoneer, or straight to your bank.</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 9.5 18 20 6.5"/></svg><span>A real person helps you set up and get your first guests.</span></li>
+      </ul>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--s-4);align-items:center;margin-top:var(--s-6)">
+        <a class="btn btn--sky btn--lg" href="/host/start/">List your property</a>
+        <a class="link-arrow" style="color:#cfe1ee" href="https://extranetnorthbnb.technoheaven.in/" rel="noopener" target="_blank">Already a host? Sign in <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="hostband__media" data-reveal data-reveal-delay="1">
+      <img src="/assets/img/montenegro-coast-1100.webp" width="1100" height="733" alt="Coastal village and mountains along the Montenegro shoreline" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--mist">
+  <div class="wrap">
+    <div class="measure center" data-reveal>
+      <h2>Questions, answered</h2>
+    </div>
+    <div class="faq" style="margin-top:var(--s-7)">
+      
+  <details data-reveal>
+    <summary>Where in Montenegro can I book a stay?<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+    <p>Across the country: coastal towns such as Herceg Novi and Budva, the capital Podgorica, and mountain spots near Žabljak. Search by town and dates to see what's available.</p>
+  </details>
+      
+  <details data-reveal>
+    <summary>How do I pay for a booking?<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+    <p>By major credit card or PayPal online, or on arrival at the property. You choose the method that suits your trip.</p>
+  </details>
+      
+  <details data-reveal>
+    <summary>Is booking with NorthB&amp;B cheaper than the big travel sites?<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+    <p>We work directly with hosts, so there's no added marketplace markup. The rate you see is the real, best rate.</p>
+  </details>
+      
+  <details data-reveal>
+    <summary>Can I get help if something comes up during my trip?<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+    <p>Yes. Our support team is available 24/7 to help you choose and book, and to sort out anything that comes up while you travel.</p>
+  </details>
+      
+  <details data-reveal>
+    <summary>How do I list my own property?<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+    <p>Use the guided <a href='/host/start/'>host signup</a>. It takes a few minutes. We handle the setup and a real person helps you get your listing live.</p>
+  </details>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--navy center">
+  <div class="wrap">
+    <h2 data-reveal>Find your place in Montenegro</h2>
+    <p class="lede" style="color:#cfe1ee;margin:var(--s-3) auto 0" data-reveal>Real availability, direct rates, and people who know the country.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:var(--s-4);justify-content:center;margin-top:var(--s-6)" data-reveal>
+      <a class="btn btn--sky btn--lg" href="/search/"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm9 16-4.35-4.35"/></svg> Find a stay</a>
+      <a class="btn btn--ghost-on-dark btn--lg" href="/host/start/">Become a host</a>
+    </div>
+  </div>
+</section>
+
+<nav class="dswitch" aria-label="Design versions">
+  <span class="dswitch__label">Design</span>
+  <a href="/design/1/" aria-current="page"><strong>1</strong> Clean</a><a href="/design/2/"><strong>2</strong> Coastal</a><a href="/design/3/"><strong>3</strong> Bold</a>
+</nav>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <svg viewBox="0 0 196 34" role="img" aria-label="NorthB&amp;B home" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 29V5h3.2l10.6 15.9V5H21v24h-3.2L7.2 13.1V29H4Z" fill="#ffffff"/>
+<path d="M0 3.5 9 0v8.5L0 12V3.5Z" fill="#30c9fa"/>
+<text x="30" y="24.5" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#ffffff">north</text>
+<text x="112" y="24.5" font-family="Montserrat, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#30c9fa">B&amp;B</text>
+</svg>
+        <p>Handpicked private accommodation across Montenegro, booked directly, with real people on hand before, during and after your trip.</p>
+        <div class="social">
+          <a href="https://www.facebook.com/NorthBNB" aria-label="NorthB&B on facebook" rel="noopener" target="_blank"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" stroke="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8.5V7c0-.8.5-1 1-1h1.5V3H14c-2.2 0-3.5 1.4-3.5 3.6V8.5H8V11h2.5v8h3v-8H16l.5-2.5H13.5Z"/></svg></a>
+          <a href="https://www.instagram.com/northbnb/" aria-label="NorthB&B on instagram" rel="noopener" target="_blank"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://me.linkedin.com/company/triptravelmont" aria-label="NorthB&B on linkedin" rel="noopener" target="_blank"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M8 10.5V16M8 7.6v.1M11.5 16v-3c0-1.4.9-2.3 2.1-2.3s2 .9 2 2.3V16"/></svg></a>
+          <a href="https://x.com/northbnb_" aria-label="NorthB&B on x" rel="noopener" target="_blank"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h2>Explore</h2>
+        <nav class="footer-list" aria-label="Footer">
+          <a href="/search/">Find a stay</a>
+          <a href="/#destinations">Destinations</a>
+          <a href="/host/start/">Become a host</a>
+          <a href="/about/">About us</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <nav class="footer-list" aria-label="Legal">
+          <a href="/legal/privacy/">Privacy policy</a>
+          <a href="/legal/cookies/">Cookie notice</a>
+          <a href="/legal/terms/">Terms of use</a>
+        </nav>
+      </div>
+      <div>
+        <h2>Contact</h2>
+        <div class="footer-contact">
+          <a href="https://maps.google.com/?q=Gradski%20Trg%20bb%2C%20Ro%C5%BEaje%2C%20Montenegro" rel="noopener" target="_blank"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Gradski Trg bb, Rožaje, Montenegro</span></a>
+          <a href="tel:+38269289866"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 4h3l1.5 4-2 1.5a12 12 0 0 0 5 5l1.5-2 4 1.5v3a1.5 1.5 0 0 1-1.6 1.5A17 17 0 0 1 5 6.6 1.5 1.5 0 0 1 6.5 4Z"/></svg><span>+382 69 289 866</span></a>
+          <a href="mailto:info@northbnb.com"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 7 8 6 8-6"/></svg><span>info@northbnb.com</span></a>
+        </div>
+        <form class="newsletter" action="/api/newsletter" method="post" data-form="newsletter" aria-label="Newsletter signup" novalidate>
+          <label class="visually-hidden" for="nl-email">Email address</label>
+          <input id="nl-email" type="email" name="email" placeholder="Email for updates &amp; offers" autocomplete="email" required>
+          <button class="btn btn--sky" type="submit">Subscribe</button>
+        </form>
+        <p class="field-error" data-form-msg="newsletter" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="eu-note">
+      <img src="/assets/img/eu-flag.png" width="42" height="28" alt="Flag of the European Union" loading="lazy" decoding="async">
+      <span>This website is co-funded by the European Union. Its contents are the sole responsibility of Trip North LLC, Rožaje, and do not necessarily reflect the views of the European Union.</span>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; <span data-year>2026</span> NorthB&B. All rights reserved.</span>
+      <nav aria-label="Footer legal">
+        <a href="/legal/privacy/">Privacy</a>
+        <a href="/legal/cookies/">Cookies</a>
+        <a href="/legal/terms/">Terms</a>
+      </nav>
+      <span class="credit">Made with love by <a href="https://immne.eu/digital-solutions" rel="noopener" target="_blank">Innovative Management</a></span>
+    </div>
+  </div>
+</footer>
+<div class="mobile-cta"><a class="btn btn--primary" href="/search/"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm9 16-4.35-4.35"/></svg> Find a stay</a></div>
+<div class="cookie-bar" id="cookie-bar" role="region" aria-label="Cookie notice" hidden>
+  <div class="wrap cookie-bar__inner">
+    <p>We use only essential cookies to make this site work. Read our <a href="/legal/cookies/">Cookie Notice</a>.</p>
+    <button class="btn btn--sky" type="button" data-cookie-ack>Got it</button>
+  </div>
+</div>
+<script src="/assets/js/main.js?v=00231c115d" defer></script>
+</body>
+</html>

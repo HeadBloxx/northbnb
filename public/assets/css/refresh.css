@@ -1,0 +1,236 @@
+/* ============================================================
+   Refresh layer: Newsreader + Airbnb/Apple-style controls.
+   Opt-in per page with body.refresh (Design 3 and the host flow for now).
+   Text is Newsreader; buttons, fields and small UI labels use the system
+   SF stack with self-hosted Inter as the fallback.
+   ============================================================ */
+@font-face {
+  font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url("/assets/fonts/newsreader-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Newsreader"; font-style: normal; font-weight: 200 800; font-display: swap;
+  src: url("/assets/fonts/newsreader-latinext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Newsreader"; font-style: italic; font-weight: 200 800; font-display: swap;
+  src: url("/assets/fonts/newsreader-italic-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Newsreader"; font-style: italic; font-weight: 200 800; font-display: swap;
+  src: url("/assets/fonts/newsreader-italic-latinext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("/assets/fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url("/assets/fonts/inter-latinext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+.refresh {
+  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", "Segoe UI", system-ui, sans-serif;
+  --font: var(--serif);
+
+  --ab-ink: #222222;
+  --ab-muted: #6a6a6a;
+  --ab-line: #dddddd;
+  --ab-line-soft: #ebebeb;
+  --ab-soft: #f7f7f7;
+
+  --terra: #c65a3a;
+  --terra-ink: #a8462a;
+  /* accent = the blue in the B&B wordmark */
+  --accent: #30c9fa;
+  --accent-hi: #56d6fc;
+  --accent-lo: #1fbbf1;
+  --accent-ink: #0a7fb0;      /* AA on white, for text and icons */
+  --on-accent: #022b45;       /* white fails contrast on this blue, so buttons carry navy */
+  --grad: linear-gradient(180deg, var(--accent-hi) 0%, var(--accent) 55%, var(--accent-lo) 100%);
+  --btn-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), inset 0 -1px 0 rgba(2, 43, 69, 0.08), 0 1px 2px rgba(2, 43, 69, 0.14), 0 8px 18px -8px rgba(20, 160, 215, 0.65);
+
+  --r-btn: 8px;
+  --r-field: 8px;
+  --r-card: 16px;
+  --r-pill: 999px;
+
+  --sh-card: 0 6px 16px rgba(0, 0, 0, 0.12);
+  --sh-float: 0 6px 20px rgba(0, 0, 0, 0.18);
+  --spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  font-size: 1.125rem;
+  line-height: 1.55;
+  color: var(--ab-ink);
+}
+
+/* ---- Type: Newsreader everywhere text is read ---- */
+.refresh h1, .refresh h2, .refresh h3, .refresh h4 {
+  font-family: var(--serif); font-weight: 500; letter-spacing: -0.018em; line-height: 1.08;
+}
+.refresh h3, .refresh h4 { font-weight: 600; letter-spacing: -0.01em; }
+.refresh .lede { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem); color: #3f3f3f; }
+.refresh em, .refresh .it { font-style: italic; }
+
+/* ---- UI type: SF / Inter for controls and small labels ---- */
+.refresh .btn, .refresh .nav__link, .refresh .nav__login, .refresh .link-arrow,
+.refresh .field > label, .refresh input, .refresh select, .refresh textarea,
+.refresh .crumbs, .refresh .dswitch, .refresh .cookie-bar, .refresh .footer-grid h2,
+.refresh .footer-bottom, .refresh .d3-compare__head, .refresh .d3-numbers span,
+.refresh .dest__label span, .refresh .d3-card__label span {
+  font-family: var(--ui);
+}
+
+/* ---- Buttons ---- */
+.refresh .btn {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 48px; padding: 0 24px;
+  font-weight: 600; font-size: 1rem; letter-spacing: 0;
+  border-radius: var(--r-btn); border: 1px solid transparent;
+  transition: transform 0.25s var(--spring), box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+/* soft light that follows the pointer (main.js sets --mx / --my) */
+.refresh .btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.32), transparent 62%);
+  opacity: 0; transition: opacity 0.25s ease;
+}
+.refresh .btn:hover::before { opacity: 1; }
+.refresh .btn:active { transform: scale(0.96); }
+.refresh .btn--lg { min-height: 56px; padding: 0 28px; font-size: 1.05rem; }
+
+.refresh .btn--primary, .refresh .btn--terra, .refresh .btn--grad {
+  background: var(--grad); background-origin: border-box; background-color: var(--accent);
+  color: var(--on-accent); font-weight: 650; letter-spacing: 0.005em; border-color: transparent;
+  box-shadow: var(--btn-shadow);
+}
+.refresh .btn--primary:hover, .refresh .btn--terra:hover, .refresh .btn--grad:hover {
+  background: var(--grad); background-origin: border-box; color: var(--on-accent); transform: translateY(-1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), inset 0 -1px 0 rgba(2, 43, 69, 0.08), 0 1px 2px rgba(2, 43, 69, 0.14), 0 12px 24px -8px rgba(20, 160, 215, 0.75);
+}
+.refresh .btn--primary:active, .refresh .btn--terra:active, .refresh .btn--grad:active { transform: scale(0.97); }
+.refresh .btn--primary::before, .refresh .btn--terra::before, .refresh .btn--grad::before {
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.5), transparent 62%);
+}
+.refresh .btn--dark { background: var(--ab-ink); color: #fff; }
+.refresh .btn--dark:hover { background: #000; color: #fff; }
+.refresh .btn--ghost { background: #fff; color: var(--ab-ink); border-color: var(--ab-ink); }
+.refresh .btn--ghost:hover { background: var(--ab-soft); border-color: var(--ab-ink); }
+.refresh .btn--ghost::before, .refresh .btn--on-dark::before { background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(0, 0, 0, 0.05), transparent 62%); }
+.refresh .btn--ghost-on-dark { border-color: rgba(255, 255, 255, 0.7); }
+.refresh .btn--ghost-on-dark:hover { border-color: #fff; background: rgba(255, 255, 255, 0.1); }
+.refresh .btn--sky { background: var(--grad); background-origin: border-box; background-color: var(--accent); color: var(--on-accent); font-weight: 650; box-shadow: var(--btn-shadow); }
+.refresh .btn--sky:hover { background: var(--grad); background-origin: border-box; color: var(--on-accent); transform: translateY(-1px); }
+
+.refresh .link-arrow { font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.refresh .link-arrow:hover { color: inherit; text-decoration-thickness: 2px; }
+
+/* ---- Header: quiet, Airbnb-like ---- */
+.refresh .site-header { background: rgba(255, 255, 255, 0.96); border-bottom-color: var(--ab-line-soft); }
+.refresh .nav { gap: var(--s-4); }
+.refresh .nav__links { gap: 2px; }
+.refresh .nav__link {
+  font-size: 0.94rem; font-weight: 500; color: var(--ab-ink);
+  padding: 10px 12px; border-radius: var(--r-pill); transition: background-color 0.2s ease; white-space: nowrap;
+}
+.refresh .nav__link::after { display: none; }
+.refresh .nav__link:hover { background: var(--ab-soft); color: var(--ab-ink); }
+.refresh .nav__link[aria-current="page"] { font-weight: 650; }
+.refresh .nav__login {
+  font-size: 0.94rem; font-weight: 600; color: var(--ab-ink);
+  border: 1px solid var(--ab-line); border-radius: var(--r-btn); padding: 12px 20px;
+  transition: box-shadow 0.2s ease; white-space: nowrap;
+}
+.refresh .nav__login:hover { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14); }
+.refresh .site-header .btn--primary { min-height: 46px; padding: 0 22px; font-size: 0.96rem; white-space: nowrap; }
+
+/* ---- Hero ---- */
+.refresh .hero h1 { font-weight: 500; letter-spacing: -0.025em; font-size: clamp(2.6rem, 1.6rem + 4.2vw, 4.8rem); line-height: 1.02; max-width: 14ch; }
+.refresh .hero__sub { font-size: clamp(1.15rem, 1.05rem + 0.6vw, 1.45rem); }
+
+/* ---- Search: the Airbnb pill ---- */
+.refresh .searchbar {
+  grid-template-columns: 1.5fr 1fr 1fr auto; gap: 0; align-items: center;
+  border-radius: 20px; padding: 8px; max-width: 920px;
+  border: 1px solid var(--ab-line); box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+.refresh .searchbar .field {
+  position: relative; gap: 2px; padding: 12px 26px; border-radius: 14px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease; cursor: pointer;
+}
+.refresh .searchbar .field + .field::before {
+  content: ""; position: absolute; left: 0; top: 22%; height: 56%; width: 1px; background: var(--ab-line);
+  transition: opacity 0.2s ease;
+}
+.refresh .searchbar .field:hover { background: var(--ab-line-soft); }
+.refresh .searchbar .field:hover::before, .refresh .searchbar .field:hover + .field::before,
+.refresh .searchbar .field:focus-within::before, .refresh .searchbar .field:focus-within + .field::before { opacity: 0; }
+.refresh .searchbar .field:focus-within { background: #fff; box-shadow: var(--sh-float); }
+.refresh .searchbar .field > label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--ab-ink); }
+.refresh .searchbar .field__control { min-height: 0; padding: 0; border: 0; background: transparent; }
+.refresh .searchbar .field__control:focus-within { box-shadow: none; }
+.refresh .searchbar .field__control .ico { display: none; }
+.refresh .searchbar .field__control input { font-weight: 400; font-size: 0.95rem; color: var(--ab-ink); padding: 0; }
+.refresh .searchbar .field__control input::placeholder { color: var(--ab-muted); }
+.refresh .searchbar .btn { height: 56px; padding: 0 28px; margin-left: 6px; }
+.refresh .searchbar .btn .ico { width: 18px; height: 18px; stroke-width: 2.6; }
+@media (max-width: 860px) {
+  .refresh .searchbar { grid-template-columns: 1fr 1fr; gap: 8px; border-radius: 24px; padding: 12px; }
+  .refresh .searchbar .field { border: 1px solid var(--ab-line); border-radius: 12px; padding: 10px 16px; }
+  .refresh .searchbar .field:first-child { grid-column: 1 / -1; }
+  .refresh .searchbar .field + .field::before { display: none; }
+  .refresh .searchbar .btn { grid-column: 1 / -1; margin: 4px 0 0; border-radius: 12px; height: 52px; }
+}
+
+/* ---- Cards and lists pick up the rounder geometry ---- */
+.refresh .faq details { border-radius: 14px; border-color: var(--ab-line); transition: box-shadow 0.25s ease; }
+.refresh .faq details:hover { box-shadow: var(--sh-card); }
+.refresh .faq summary { font-family: var(--serif); font-weight: 600; font-size: 1.18rem; color: var(--ab-ink); }
+.refresh .faq summary .ico { width: 32px; height: 32px; padding: 6px; border-radius: 50%; background: var(--ab-soft); color: var(--ab-ink); }
+.refresh .hostband__media img, .refresh .dest { border-radius: var(--r-card); }
+.refresh .section--navy h2 { font-weight: 500; }
+.refresh .cookie-bar .btn, .refresh .newsletter .btn { min-height: 44px; }
+.refresh .newsletter input { border-radius: var(--r-btn); font-size: 0.95rem; }
+.refresh .social a { border-radius: 50%; }
+.refresh .footer-grid h2 { font-size: 0.86rem; letter-spacing: 0; text-transform: none; font-weight: 650; }
+
+/* ---- Design 3 specifics ---- */
+.refresh.d3 .d3-statement h2 { font-weight: 500; letter-spacing: -0.035em; line-height: 0.92; }
+.refresh.d3 .d3-w2 { color: var(--sky); -webkit-text-stroke: 0; font-style: italic; font-weight: 400; }
+.refresh.d3 .d3-statement p { font-size: clamp(1.15rem, 1.05rem + 0.4vw, 1.35rem); }
+.refresh.d3 .d3-compare { border-radius: 20px; padding: 28px; }
+.refresh.d3 .d3-compare__head { letter-spacing: 0; text-transform: none; font-size: 0.86rem; font-weight: 600; border-bottom: 1px solid var(--ab-ink); }
+.refresh.d3 .d3-compare__k { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--ab-ink); }
+.refresh.d3 .d3-compare__row { font-size: 1rem; }
+.refresh.d3 .d3-compare__us { color: var(--ab-ink); font-weight: 600; }
+.refresh.d3 .d3-numbers strong { font-family: var(--serif); font-weight: 500; letter-spacing: -0.02em; }
+.refresh.d3 .d3-numbers span { letter-spacing: 0.02em; text-transform: none; font-size: 0.95rem; font-weight: 500; }
+.refresh.d3 .d3-dest-head h2 { font-weight: 500; letter-spacing: -0.03em; }
+.refresh.d3 .d3-card { border-radius: 18px; padding: 10px 10px 16px; }
+.refresh.d3 .d3-card__photo { border-radius: 12px; }
+.refresh.d3 .d3-card__label strong { font-family: var(--serif); font-weight: 600; color: var(--ab-ink); }
+.refresh.d3 .step::before { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent-ink); }
+.refresh.d3 .step::after { background: repeating-linear-gradient(90deg, var(--accent) 0 8px, transparent 8px 14px); }
+.refresh.d3 .section--navy .btn--sky, .refresh.d3 .section--navy .btn--sky:hover { background: var(--grad); color: var(--on-accent); }
+.refresh.d3 .faq summary .ico { color: var(--ab-ink); }
+.refresh.d3 .hostband__media img { border-radius: 18px; }
+.refresh.d3 .faq details { border-left: 1px solid var(--ab-line); }
+.refresh.d3 .section--navy h2 { letter-spacing: -0.03em; }
+.refresh.d3 .dswitch { font-size: 0.84rem; }
+/* host band: deep water so the blue CTA matches every other CTA on the page */
+.refresh.d3 .hostband { background: linear-gradient(180deg, var(--sea-2), var(--sea)); }
+.refresh.d3 .hostband p, .refresh.d3 .hostband li { color: #d7e6f1; }
+.refresh.d3 .hostband li .ico { color: var(--accent); }
+.refresh.d3 .hostband .btn--sky, .refresh.d3 .hostband .btn--sky:hover { background: var(--grad); background-origin: border-box; color: var(--on-accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .refresh .btn::before { display: none; }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "northbnb",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NorthB&B — marketing site + host signup, served by a Cloudflare Worker.",
+  "scripts": {
+    "build": "node build.mjs",
+    "images": "python optimize_images.py",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
