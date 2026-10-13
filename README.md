@@ -77,7 +77,7 @@ npm run deploy
 
 ## Launch checklist — needs confirmation before go-live
 
-- [ ] **KV ids** pasted into `wrangler.toml` (`REPLACE_WITH_*`).
+- [x] **KV namespace**: auto-provisioned by wrangler on first deploy (no id in `wrangler.toml`).
 - [ ] **Host photos bucket**: `wrangler r2 bucket create northbnb-host-photos`. Optional
       listing photos from `/host/start/` land in R2 under `host-leads/<leadId>/`. Without
       the bucket the form still works and the lead email notes the photos were not stored.

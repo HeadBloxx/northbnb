@@ -11,12 +11,10 @@ not_found_handling = "404-page"
 run_worker_first = true
 
 # KV: rate-limiting buckets + durable form leads.
-# Create once with:  wrangler kv namespace create NB_KV
-# then paste the returned id below (and a preview_id for `wrangler dev --remote`).
+# No id: wrangler provisions the namespace on first deploy and reuses it after.
+# To pin it, paste the id from the Cloudflare dashboard (Storage > KV) here.
 [[kv_namespaces]]
 binding = "NB_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
-preview_id = "REPLACE_WITH_KV_PREVIEW_ID"
 
 [vars]
 ALLOWED_ORIGIN = "https://northbnb.com"
