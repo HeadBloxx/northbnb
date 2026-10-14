@@ -26,7 +26,7 @@ long-lived immutable caching on versioned CSS/JS.
 ## Pages
 
 `/` home · `/host/` host landing (one page, one action) · `/host/start/` full-screen host signup flow (noindex) · `/search/` search + handoff ·
-`/property/` listing design preview (noindex) · `/about/` · `/contact/` ·
+`/property/` listing design preview (noindex) · `/design/1|2|3/` homepage exploration, noindex (Design 3 was chosen and is now the site-wide look; safe to delete `src/pages/designs.mjs` once signed off) · `/about/` · `/contact/` ·
 `/legal/privacy/`, `/legal/cookies/`, `/legal/terms/` · custom `404.html`.
 
 ## Stack & structure
@@ -68,10 +68,13 @@ validation and a success state; contact and newsletter post inline.
 wrangler kv namespace create NB_KV
 wrangler kv namespace create NB_KV --preview
 
-# 2. (optional) enable email notifications for new leads
+# 2. host photo bucket (optional; the form works without it)
+wrangler r2 bucket create northbnb-host-photos
+
+# 3. (optional) enable email notifications for new leads
 wrangler secret put RESEND_API_KEY     # uses Resend; falls back to KV-only if unset
 
-# 3. ship
+# 4. ship
 npm run deploy
 ```
 
@@ -96,6 +99,17 @@ npm run deploy
 - [ ] **Legal review**: the privacy / cookie / terms pages are adapted from the
       CC0 General-Legal templates and customised for Trip North LLC / Montenegro
       (governing law set to Montenegro). Have counsel review before relying on them.
+
+## Repo notes for the next owner
+
+- Default branch is `main`. The GitHub remote is `HeadBloxx/nothbnb` (sic); rename if desired.
+- `marketing/instagram-reel/` holds the EN + ME host reel (cover images and `caption.md`
+  are tracked; the large `.mp4` files and `source/` are git-ignored). Caption copy was
+  still pending approval. House style: no em dashes, no eyebrow labels.
+- `.raw-img/` (source photos) and `.raw-legal/` (CC0 legal templates) are inputs for the image/legal
+  pages. `.raw-img/` is git-ignored, so back it up separately.
+- `.claude/launch.json` defines local preview servers (`static`, `worker`).
+- Nothing has been deployed yet; deploy needs Cloudflare auth (`wrangler login`).
 
 ## Brand
 
