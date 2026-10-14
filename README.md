@@ -102,7 +102,7 @@ npm run deploy
 
 ## Repo notes for the next owner
 
-- Default branch is `main`. The GitHub remote is `HeadBloxx/nothbnb` (sic); rename if desired.
+- Default branch is `main`.
 - `marketing/instagram-reel/` holds the EN + ME host reel (cover images and `caption.md`
   are tracked; the large `.mp4` files and `source/` are git-ignored). Caption copy was
   still pending approval. House style: no em dashes, no eyebrow labels.
