@@ -26,7 +26,7 @@ long-lived immutable caching on versioned CSS/JS.
 ## Pages
 
 `/` home · `/host/` host landing (one page, one action) · `/host/start/` full-screen host signup flow (noindex) · `/search/` search + handoff ·
-`/property/` listing design preview (noindex) · `/design/1|2|3/` homepage exploration, noindex (Design 3 was chosen and is now the site-wide look; safe to delete `src/pages/designs.mjs` once signed off) · `/about/` · `/contact/` ·
+`/property/` listing design preview (noindex) · `/about/` · `/contact/` ·
 `/legal/privacy/`, `/legal/cookies/`, `/legal/terms/` · custom `404.html`.
 
 ## Stack & structure
